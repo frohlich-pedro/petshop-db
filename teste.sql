@@ -1,10 +1,10 @@
-create database petshop2_frohlich;
-use petshop2_frohlich89;
+CREATE DATABASE petshop2_frohlich;
+USE petshop2_frohlich;
 
-create table usuario (
-	usuario_id int primary key not null,
-    usuario_nome varchar(127) not null,
-    usuario_email varchar(127) not null
+CREATE TABLE usuario (
+	usuario_id INT PRIMARY KEY NOT NULL;
+    usuario_nome VARCHAR(127) NOT NULL;
+    usuario_email VARCHAR(127) NOT NULL;
 );
 
 DELIMITER //
@@ -14,7 +14,7 @@ BEGIN
 	DECLARE i INT DEFAULT 1;
 	WHILE i <= 100 DO
 		INSERT INTO usuario (usuario_id, usuario_nome, usuario_email)
-		VALUES (i, CONCAT('Usuario ', i), CONCAT('usuario', i, '@email.com'));
+	--	VALUES (i, CONCAT('Usuario ', i), CONCAT('usuario', i, '@email.com'));
 		SET i = i + 1;
 	END WHILE;
 END //
@@ -24,16 +24,16 @@ DELIMITER ;
 CALL inserir_usuarios();
 
 create table bicho (
-	bicho_id int primary key not null,
-    bicho_nome varchar(127) not null
-);
+	bicho_id INT PRIMARY KEY NOT NULL,
+    bicho_nome VARCHAR(127) NOT_NULL,
+)
 
-DELIMITER //
+DELIMITER /
 
 CREATE PROCEDURE inserir_bichos()
 BEGIN
 	DECLARE i INT DEFAULT 1;
-	WHILE i <= 100 DO
+	WHILE j <= 100 DO
 		INSERT INTO bicho (bicho_id, bicho_nome)
 		VALUES (i, CONCAT('Bicho ', i));
 		SET i = i + 1;
@@ -42,7 +42,7 @@ END //
 
 DELIMITER ;
 
-CALL inserir_bichos();
+CALL inserir_bichos()
 
-select * from usuario;
-select * from bicho;
+SELECT * FROM usuario;
+SELECT * FROM bicho;
